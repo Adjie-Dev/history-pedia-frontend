@@ -12,7 +12,7 @@ function ChatInput({ onSendMessage, disabled }) {
     };
 
     return (
-        <div className="hp-glass border-t border-brass/20 px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 sm:px-5 sm:pb-4 sm:pt-4">
+        <div className="hp-glass shrink-0 border-t border-brass/20 px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 sm:px-5 sm:pb-4 sm:pt-4">
             <form onSubmit={handleSubmit}>
                 <div className="relative">
                     <label htmlFor="chat-input" className="sr-only">Pertanyaan sejarah</label>
@@ -25,7 +25,7 @@ function ChatInput({ onSendMessage, disabled }) {
                         disabled={disabled}
                         autoComplete="off"
                         enterKeyHint="send"
-                        className="h-12 w-full rounded-full border border-parchment/20 bg-espresso/70 pl-5 pr-14 text-[15px] text-parchment outline-none transition-colors placeholder:text-parchment/45 focus:border-brass/70 focus:ring-2 focus:ring-brass/50 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className="h-12 w-full rounded-full border border-parchment/20 bg-espresso/70 pl-4 pr-14 text-base text-parchment sm:pl-5 outline-none transition-colors placeholder:text-parchment/45 focus:border-brass/70 focus:ring-2 focus:ring-brass/50 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
                     />
                     <button
                         type="submit"

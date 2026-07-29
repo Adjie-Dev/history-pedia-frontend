@@ -11,6 +11,15 @@
   color-scheme: dark;
 }
 
+html,
+body {
+  height: 100%;
+  /* Jaring pengaman: apa pun yang meluber tidak boleh membuat halaman
+     bisa digeser ke samping di layar kecil. */
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
 body {
   margin: 0;
   background-color: var(--hp-espresso);
@@ -18,6 +27,19 @@ body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tinggi layar dalam satu kelas. Dua kelas tinggi Tailwind sekaligus membuat
+   pemenangnya ditentukan urutan CSS, bukan niat penulis. svh memakai tinggi
+   terkecil, jadi bar input tetap terlihat saat bar alamat browser mobile muncul. */
+.hp-viewport {
+  height: 100vh;
+  height: 100svh;
+}
+
+/* Kata atau URL panjang pada jawaban tidak boleh melebarkan gelembung */
+.hp-answer {
+  overflow-wrap: anywhere;
 }
 
 /* Permukaan kaca di atas foto latar */

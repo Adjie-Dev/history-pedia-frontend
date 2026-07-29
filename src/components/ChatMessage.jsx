@@ -7,10 +7,12 @@ import remarkGfm from 'remark-gfm';
 // pernah ikut menggulir ke samping di layar sempit.
 const markdownComponents = {
     table: ({ node, ...props }) => (
-        <div className="my-3 max-w-full overflow-x-auto rounded-lg border border-black/10">
+        <div className="my-3 w-full min-w-0 max-w-full overflow-x-auto overscroll-x-contain rounded-lg border border-black/10">
             {/* my-0: margin bawaan prose pada tabel akan tampak sebagai celah
-                kosong di dalam pembungkus berbingkai ini */}
-            <table className="my-0 w-full border-collapse text-left text-sm" {...props} />
+                kosong di dalam pembungkus berbingkai ini.
+                w-max min-w-full: tabel lebar menggulir di dalam pembungkusnya,
+                tabel sempit tetap memenuhi lebar. */}
+            <table className="my-0 w-max min-w-full border-collapse text-left text-[13px] sm:text-sm" {...props} />
         </div>
     ),
     thead: ({ node, ...props }) => <thead className="bg-black/[0.06]" {...props} />,
@@ -39,18 +41,18 @@ const markdownComponents = {
 
 function ChatMessage({ message, isUser }) {
     return (
-        <div className={`mb-4 flex animate-fade-up flex-col sm:mb-5 ${isUser ? 'items-end' : 'items-start'}`}>
+        <div className={`mb-4 flex min-w-0 animate-fade-up flex-col sm:mb-5 ${isUser ? 'items-end' : 'items-start'}`}>
             <span className="mb-1.5 px-1 text-xs font-medium text-parchment/70">
                 {isUser ? 'Anda' : 'History Pedia'}
             </span>
             <div className={`${isUser
                 ? 'hp-glass-rope rounded-2xl rounded-br-md text-parchment ring-1 ring-white/15'
                 : 'hp-glass-light rounded-2xl rounded-bl-md text-[#241A12] ring-1 ring-black/5'
-                } ${isUser ? 'max-w-[86%]' : 'max-w-[94%]'} break-words px-4 py-3 shadow-xl shadow-black/25 sm:max-w-[80%] sm:px-5 sm:py-4 md:max-w-2xl`}>
+                } ${isUser ? 'max-w-[88%]' : 'w-full sm:w-auto'} min-w-0 break-words px-3.5 py-3 shadow-xl shadow-black/25 sm:max-w-[80%] sm:px-5 sm:py-4 md:max-w-2xl`}>
                 {isUser ? (
                     <p className="text-[15px] leading-relaxed sm:text-base">{message}</p>
                 ) : (
-                    <div className="prose prose-sm max-w-none text-[15px] leading-relaxed text-[#241A12] prose-headings:font-semibold prose-headings:text-[#241A12] prose-h1:text-lg prose-h2:text-base prose-h3:text-[15px] prose-p:my-2 prose-a:text-[#5C3A17] prose-strong:text-[#241A12] prose-ol:my-2 prose-ul:my-2 prose-li:my-0.5 prose-hr:my-4 prose-hr:border-black/10 sm:text-base">
+                    <div className="hp-answer prose prose-sm min-w-0 max-w-none text-[15px] leading-relaxed text-[#241A12] prose-headings:font-semibold prose-headings:text-[#241A12] prose-h1:text-lg prose-h2:text-base prose-h3:text-[15px] prose-p:my-2 prose-a:text-[#5C3A17] prose-strong:text-[#241A12] prose-ol:my-2 prose-ul:my-2 prose-li:my-0.5 prose-hr:my-4 prose-hr:border-black/10 sm:text-base">
                         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                             {message}
                         </ReactMarkdown>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header() {
     return (
-        <header className="hp-glass border-b border-brass/20 px-4 py-3.5 sm:px-6 sm:py-4">
+        <header className="hp-glass shrink-0 border-b border-brass/20 px-3 py-3 sm:px-6 sm:py-4">
             <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brass/40 bg-brass/15">
                     <svg className="h-5 w-5 text-brass" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
