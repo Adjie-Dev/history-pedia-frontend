@@ -12,23 +12,28 @@ function ChatInput({ onSendMessage, disabled }) {
     };
 
     return (
-        <div className="border-t border-stone-200 bg-white p-4">
-            <form onSubmit={handleSubmit} className="container mx-auto max-w-4xl">
+        <div className="hp-glass border-t border-brass/20 px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 sm:px-5 sm:pb-4 sm:pt-4">
+            <form onSubmit={handleSubmit}>
                 <div className="relative">
+                    <label htmlFor="chat-input" className="sr-only">Pertanyaan sejarah</label>
                     <input
+                        id="chat-input"
                         type="text"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Tanyakan tentang sejarah..."
                         disabled={disabled}
-                        className="w-full px-4 py-3 pr-14 border border-stone-300 rounded-lg focus:outline-none focus:border-amber-600 disabled:bg-stone-100 disabled:cursor-not-allowed text-stone-800"
+                        autoComplete="off"
+                        enterKeyHint="send"
+                        className="h-12 w-full rounded-full border border-parchment/20 bg-espresso/70 pl-5 pr-14 text-[15px] text-parchment outline-none transition-colors placeholder:text-parchment/45 focus:border-brass/70 focus:ring-2 focus:ring-brass/50 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
                     />
                     <button
                         type="submit"
                         disabled={disabled || !message.trim()}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-amber-700 hover:bg-amber-800 disabled:bg-stone-300 rounded-full flex items-center justify-center transition-colors"
+                        aria-label="Kirim pertanyaan"
+                        className="absolute right-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-brass text-espresso transition after:absolute after:-inset-1.5 after:content-[''] hover:bg-brass/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-oak disabled:opacity-40"
                     >
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </button>

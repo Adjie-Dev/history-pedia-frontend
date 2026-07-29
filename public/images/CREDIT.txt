@@ -1,0 +1,10 @@
+perpustakaan.jpg
+
+Judul    : Rijks Museum Library
+Pemotret : Michael D Beckwith
+Lisensi  : CC0 (Creative Commons Zero, Public Domain Dedication)
+Atribusi : tidak diwajibkan (AttributionRequired: false)
+Berkas   : https://commons.wikimedia.org/wiki/File:Rijks_Museum_Library_(243776563).jpeg
+Olahan   : diperkecil ke 1600 px dan dikompresi ulang untuk web
+
+Catatan ini hanya arsip internal. Tidak ada kredit yang perlu ditampilkan di UI.
